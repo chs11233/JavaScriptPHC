@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html lang="utf-8">
 <head>
@@ -37,12 +36,6 @@
   </style>
 </head>
 <body>
-	<%
-			String userID = null;
-			if (session.getAttribute("userID") != null) {
-					userID = (String) session.getAttribute("userID");
-			}
-	%>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -56,28 +49,16 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="main1.jsp">관광명소</a></li>
+        <li class="active"><a href="#">관광명소</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">관광코스</a></li>
         <li><a href="#">통근노선안내</a></li>
-        <li><a href="user.jsp">고객게시판</a></li>
+        <li><a href="">고객게시판</a></li>
       </ul>
-			 <%
-			 if(userID == null) {
-			 %>
-			<ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
+       <li><a href="search.jsp">Search</a></li>
         <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
-			 <%
-			 } else {
-				%>
-			<ul class="nav navbar-nav navbar-right">
-       <li><a href="search.jsp">Search</a></li>
-        <li><a href="logoutAction.jsp"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-      </ul>
-				<%
-			 }
-			 	%>
     </div>
   </div>
 </nav>

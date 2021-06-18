@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
+<%@ page import="ut.UtDAO"%>
+<%@ page import="ut.Ut"%>
+<%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +18,16 @@ pageEncoding="UTF-8"%>
 </head>
 </head>
 <body>
+	<%
+	String userID = null;
+			if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			}
+			int pageNumber = 1;
+			if (request.getParameter("pageNumber") != null) {
+		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+			}
+	%>
 <form action="userWrite.jsp">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <a class="navbar-brand" href="main1.jsp"> 
@@ -32,26 +46,32 @@ pageEncoding="UTF-8"%>
 	</nav>
 	<br>
 	<div class="container">
-		<div class="form-group row float-right">
-			<div class="col-xs-8">
-				<input class="form-control"  id="search" name="search" type="text" size="20" onkeyup="searchFunction()" placeholder="Search..">
-			</div>
-			<div class="col-xs-2">
-				<button class="btn btn-primary" type="button" onclick="searchFunction()">검색</button>
-			</div>
-		</div>
 		</div>
 		<table class="table" style="text-align: center;border: 1px solid #dddddd">
 			<thead>
 				<tr>
 					<th style="background-color: #fafafa;text-align: center;">게시물 번호</th>
+					<th style="background-color: #fafafa;text-align: center;">제목</th>
 					<th style="background-color: #fafafa;text-align: center;">작성자</th>
 					<th style="background-color: #fafafa;text-align: center;">작성일</th>
-					<th style="background-color: #fafafa;text-align: center;">내용</th>
 				</tr>
 			</thead>
-			<tbody id="ajaxTable">
-			</tbody>
+			<tbody>
+						<%
+						UtDAO utDAO = new UtDAO();
+																							ArrayList<Ut> list = utDAO.getList(pageNumber);
+																							for(int i = 0; i < list.size(); i++) {
+						%>
+							<tr>
+								<td><%= list.get(i).getUtID() %></td>
+								<td><a href = "view.jsp?utID=<%= list.get(i).getUtID() %>"><%= list.get(i).getUtTitle() %></a></td>
+								<td><%= list.get(i).getUserID() %></td>
+								<td><%= list.get(i).getUtDate().substring(0, 11) + list.get(i).getUtDate().substring(11, 13) + "시 " + list.get(i).getUtDate().substring(14, 16) + "분 " %></td>
+							</tr>
+						<%
+							}
+						%>
+						</tbody>
 		</table>
 	</div>
   <div class="text-center">
