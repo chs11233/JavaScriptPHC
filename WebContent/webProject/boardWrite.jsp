@@ -27,16 +27,12 @@
 	      <input type="text" class="form-control" id="name" name="name">
 	    </div>
 	    <div class="form-group">
-	      <label for="pwd">비밀번호</label>
-	      <input type="password" class="form-control" id="pwd" name="pwd" >
-	    </div>
-	    <div class="form-group">
-	      <label for="pwd">내용</label>
-	      <textarea type="password" class="form-control" id="pwd" name="pwd" maxlength="2048" style="height: 350px;"></textarea>
+	      <label for="content">내용</label>
+	      <textarea type="content" class="form-control" id="content" name="content" maxlength="2048" style="height: 350px;"></textarea>
 	    </div>
 	    <br>
 	    <div class="text-center">
-				<button  type="submit" class="btn btn-secondary">등록</button>
+				<button  type="submit" class="btn btn-warning">등록</button>
 		</div>
 		</form>
 	
