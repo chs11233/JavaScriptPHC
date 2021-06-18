@@ -18,7 +18,6 @@ public class UserDAO {
 			String dbPassword = "root";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-			System.out.println("테스트");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

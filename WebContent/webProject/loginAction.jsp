@@ -15,9 +15,21 @@
 </head>
 <body>
 		<%
+				String userID = null;
+				if(session.getAttribute("userID") != null) {
+						userID = (String) session.getAttribute("userID");
+			}
+				if(userID != null) {
+					PrintWriter script = response.getWriter();
+					script.println("<script>");
+					script.println("alert('이미 로그인이 되어있습니다.')");
+					script.println("location.href = 'main1.jsp'");
+					script.println("</script>");
+				}
 				GroupDAO groupDAO = new GroupDAO();
 				int result = groupDAO.login(group.getUserID(), group.getUserPassword());
 				if (result ==1){
+						session.setAttribute("userID", group.getUserID());
 						PrintWriter script = response.getWriter();
 						script.println("<script>");
 						script.println("location.href = 'main1.jsp'");
