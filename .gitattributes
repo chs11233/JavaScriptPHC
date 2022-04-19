@@ -1,3 +1,2 @@
-woo/** linguist-documentation=false
-woo/** linguist-vendored=false
-*.java linguist-detectable=false
+* linguist-vendored
+*.css linguist-vendored=false
