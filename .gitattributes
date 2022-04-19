@@ -1,1 +1,2 @@
-*.java linguist-vendored
+* linguist-vendored
+*.jsp linguist-vendored=false
