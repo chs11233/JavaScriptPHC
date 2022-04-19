@@ -1,2 +1,1 @@
-woo/** linguist-documentation=false
-woo/** linguist-vendored=false
+*.jsp linguist-detectable=true
