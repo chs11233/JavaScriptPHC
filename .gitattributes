@@ -1,2 +1,5 @@
+woo/** linguist-documentation=false
+woo/** linguist-vendored=false
+
 * linguist-vendored
 *.jsp linguist-vendored=false
