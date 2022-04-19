@@ -1,1 +1,2 @@
-*.Java Server Pages linguist-detectable=true
+* linguist-vendored
+*.jsp linguist-vendored=false
